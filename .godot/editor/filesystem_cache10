@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764344405
+::res://::1764348504
 icon.webp::CompressedTexture2D::27118964165343846::1744386698::1764078562::1::::<><><>0<>0<>d1498e266395186d04e973f787f3596d<>res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex::
 ::res://art/::1764345687
 body.tres::StandardMaterial3D::-1::1744386698::0::1::::<><><>0<>0<><>::
@@ -14,15 +14,16 @@ white_6x6.png::CompressedTexture2D::4541373937653780210::1764345687::1764345687:
 ::res://fonts/::1764078562
 LICENSE.txt::TextFile::-1::1744386698::0::1::::<><><>0<>0<><>::
 Montserrat-Medium.ttf::FontFile::6505293508080888906::1744386698::1764078562::1::::<><><>0<>0<>1eb268033ecd125d99a1f1687f4c989d<>res://.godot/imported/Montserrat-Medium.ttf-e832861e4ad4110e172112dc430c04b0.fontdata::
-::res://scenes/::1764345322
-main.tscn::PackedScene::6990564927160216247::1764345322::0::1::::<><><>0<>0<><>::uid://cqqiyl7cxwi8f::::res://scenes/player.tscn<>uid://bcuvb6ejqcs7w::::res://scripts/game_manager.gd<>uid://dj22htvsf53ht::::res://scenes/mob.tscn<>uid://cclmjwith3w60::::res://scripts/mob_spawner.gd<>uid://cpw3omtb38wak::::res://scenes/spawner.tscn<>uid://cyxhh7ddkn62q::::res://fonts/Montserrat-Medium.ttf
+::res://scenes/::1764348266
+main.tscn::PackedScene::6990564927160216247::1764348266::0::1::::<><><>0<>0<><>::uid://cqqiyl7cxwi8f::::res://scenes/player.tscn<>uid://bcuvb6ejqcs7w::::res://scripts/game_manager.gd<>uid://dj22htvsf53ht::::res://scenes/mob.tscn<>uid://cclmjwith3w60::::res://scripts/mob_spawner.gd<>uid://cpw3omtb38wak::::res://scenes/spawner.tscn<>uid://cyxhh7ddkn62q::::res://fonts/Montserrat-Medium.ttf<>uid://c5qpnfga41t4p::::res://art/House In a Forest Loop.ogg
 mob.tscn::PackedScene::7848352733753513905::1764257143::0::1::::<><><>0<>0<><>::uid://bicorb7we351t::::res://art/mob.glb<>uid://byy1e04jxg6ip::::res://scripts/mob.gd
 player.tscn::PackedScene::5929422131968600423::1764258101::0::1::::<><><>0<>0<><>::uid://d0ypm0v45pwdv::::res://art/player.glb<>uid://bvvrf38r0kygx::::res://scripts/player.gd
 spawner.tscn::PackedScene::5872816069173793418::1764174752::0::1::::<><><>0<>0<><>::uid://fdccycwvvqxc::::res://scripts/spawner.gd
-test_2d_collision.tscn::PackedScene::5959764748346192502::1764257895::0::1::::<><><>0<>0<><>::
-::res://scripts/::1764259160
-game_manager.gd::GDScript::2569364403525834830::1764259160::0::1::::<>Node3D<><>0<>0<><>::
-mob.gd::GDScript::4122085140413868699::1764257143::0::1::::<>CharacterBody3D<><>0<>0<><>::
-mob_spawner.gd::GDScript::4936673054761158975::1764256969::0::1::::MobSpawner<>Spawner<><>0<>0<><>::
-player.gd::GDScript::3904780973212172163::1764258101::0::1::::<>CharacterBody3D<><>0<>0<><>::
-spawner.gd::GDScript::357263621704183304::1764256503::0::1::::Spawner<>Path3D<><>0<>0<><>::
+test.tscn::PackedScene::1390056276596945140::1764347997::0::1::::<><><>0<>0<><>::
+test_2d_collision.tscn::PackedScene::5959764748346192502::1764347997::0::1::::<><><>0<>0<><>::
+::res://scripts/::1764348098
+game_manager.gd::GDScript::2569364403525834830::1764348098::0::1::::<>Node3D<><>0<>0<><>::
+mob.gd::GDScript::4122085140413868699::1764347535::0::1::::Mob<>CharacterBody3D<><>0<>0<><>::
+mob_spawner.gd::GDScript::4936673054761158975::1764346776::0::1::::MobSpawner<>Spawner<><>0<>0<><>::
+player.gd::GDScript::3904780973212172163::1764347094::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
+spawner.gd::GDScript::357263621704183304::1764347464::0::1::::Spawner<>Path3D<><>0<>0<><>::

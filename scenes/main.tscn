@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6ujt274jwibv"]
+[gd_scene load_steps=16 format=3 uid="uid://c6ujt274jwibv"]
 
 [ext_resource type="PackedScene" uid="uid://cqqiyl7cxwi8f" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bcuvb6ejqcs7w" path="res://scripts/game_manager.gd" id="1_tbgi4"]
@@ -26,6 +26,12 @@ default_font_size = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
 bg_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_o6xl0"]
+action = &"new_game"
+
+[sub_resource type="Shortcut" id="Shortcut_tipki"]
+events = [SubResource("InputEventAction_o6xl0")]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tbgi4")
@@ -136,6 +142,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+shortcut = SubResource("Shortcut_tipki")
 text = "Retry"
 
 [node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
