@@ -1,0 +1,146 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6ujt274jwibv"]
+
+[ext_resource type="PackedScene" uid="uid://cqqiyl7cxwi8f" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bcuvb6ejqcs7w" path="res://scripts/game_manager.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dj22htvsf53ht" path="res://scenes/mob.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://cclmjwith3w60" path="res://scripts/mob_spawner.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cpw3omtb38wak" path="res://scenes/spawner.tscn" id="3_sugp2"]
+[ext_resource type="FontFile" uid="uid://cyxhh7ddkn62q" path="res://fonts/Montserrat-Medium.ttf" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://c5qpnfga41t4p" path="res://art/House In a Forest Loop.ogg" id="7_o6xl0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="Theme" id="Theme_tbgi4"]
+
+[sub_resource type="Theme" id="Theme_tefeu"]
+default_font = ExtResource("6_tefeu")
+default_font_size = 22
+
+[sub_resource type="Theme" id="Theme_o6xl0"]
+default_font = ExtResource("6_tefeu")
+default_font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_tbgi4")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_o5qli")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_o5qli")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.29875764, 0.954329, 0, -0.954329, 0.29875764, 0, 27.220203, 0)
+shadow_enabled = true
+
+[node name="CameraPrivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPrivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 19.0
+
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+speed = 15
+
+[node name="MobSpawner" parent="." node_paths=PackedStringArray("target", "spawn_root") instance=ExtResource("3_sugp2")]
+script = ExtResource("3_jyhfs")
+target = NodePath("../Player")
+prefab = ExtResource("2_0wfyh")
+spawn_root = NodePath("../Mobs")
+
+[node name="Mobs" type="Node" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_tbgi4")
+
+[node name="TextScore" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.0
+offset_top = 16.0
+offset_right = 51.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme = SubResource("Theme_tefeu")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 22
+text = "Score: 00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="ColorRect" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="TextGameOver" type="Label" parent="HUD/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -19.0
+offset_right = 103.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o6xl0")
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRetry" type="Button" parent="HUD/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 48.0
+offset_right = 60.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_tefeu")
+text = "Retry"
+
+[node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_o6xl0")
+
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="mob_spawn" from="MobSpawner" to="." method="_on_mob_spawner_mob_spawn"]
+[connection signal="pressed" from="HUD/GameOver/ButtonRetry" to="." method="_on_button_retry_pressed"]

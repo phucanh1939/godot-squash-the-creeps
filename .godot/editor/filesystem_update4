@@ -1,0 +1,8 @@
+res://scenes/main.tscn
+res://scripts/game_manager.gd
+res://scripts/mob_spawner.gd
+res://scripts/mob.gd
+res://scripts/player.gd
+res://scripts/spawner.gd
+res://scenes/test.tscn
+res://scripts/test.gd

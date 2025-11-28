@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpw3omtb38wak"]
+
+[ext_resource type="Script" uid="uid://fdccycwvvqxc" path="res://scripts/spawner.gd" id="1_2vbf6"]
+
+[sub_resource type="Curve3D" id="Curve3D_tbgi4"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -12.70783, 0.00020980835, -13.657008, 0, 0, 0, 0, 0, 0, 12.99542, 7.6293945e-05, -13.657095, 0, 0, 0, 0, 0, 0, 12.981135, 0.00032043457, 14.406239, 0, 0, 0, 0, 0, 0, -12.92071, -0.00013542175, 14.467161),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Spawner" type="Path3D"]
+curve = SubResource("Curve3D_tbgi4")
+script = ExtResource("1_2vbf6")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="."]
+transform = Transform3D(3.413358e-06, 5.1944558e-06, -1, 0, 1, 5.1944558e-06, 1, -1.7730538e-11, 3.413358e-06, -12.70783, 0.00020980835, -13.657008)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
