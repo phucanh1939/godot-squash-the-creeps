@@ -14,6 +14,7 @@ func init(spawn_pos, target) -> void:
 	var random_speed = randi_range(min_speed, max_speed)
 	velocity = Vector3.FORWARD * random_speed
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
+	$AnimationPlayer.speed_scale = random_speed / min_speed
 
 func _physics_process(_delta):
 	move_and_slide()

@@ -29,6 +29,9 @@ func _process_movement_input(delta):
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		basis = Basis.looking_at(direction)
+		$AnimationPlayer.speed_scale = 2
+	else:
+		$AnimationPlayer.speed_scale = 1
 
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
@@ -41,6 +44,7 @@ func _process_movement_input(delta):
 
 	velocity = target_velocity
 	move_and_slide()
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 func _check_for_squash():
 	for index in range(get_slide_collision_count()):
